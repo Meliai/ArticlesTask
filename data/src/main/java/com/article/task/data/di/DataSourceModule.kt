@@ -1,7 +1,7 @@
 package com.article.task.data.di
 
-import com.article.task.data.features.feature1.datasource.TestDataSource
-import com.article.task.data.features.feature1.datasource.TestRemoteDataSource
+import com.article.task.data.features.articles.datasource.ArticlesDataSource
+import com.article.task.data.features.articles.datasource.ArticlesRemoteDataSource
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
@@ -12,5 +12,5 @@ interface DataSourceModule {
 
     @Binds
     @Singleton
-    fun bindTestDataSource(source: TestRemoteDataSource): TestDataSource
+    fun bindTestDataSource(source: ArticlesRemoteDataSource): ArticlesDataSource
 }
