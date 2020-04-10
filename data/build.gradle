@@ -30,4 +30,6 @@ dependencies {
     implementation commonDependencies.okHttp
     implementation commonDependencies.okHttpLogger
     implementation commonDependencies.gson
+
+    implementation commonDependencies.threeTenABP
 }

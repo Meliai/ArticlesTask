@@ -21,4 +21,6 @@ dependencies {
     implementation commonDependencies.dagger
     implementation commonDependencies.daggerAndroid
     implementation commonDependencies.daggerAndroidSupport
+
+    implementation commonDependencies.threeTenABP
 }

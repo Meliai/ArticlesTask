@@ -5,5 +5,5 @@ import io.reactivex.Single
 
 interface ArticlesDataSource {
 
-    fun getArticles(): Single<ArticleDto>
+    fun getArticles(): Single<List<ArticleDto>>
 }

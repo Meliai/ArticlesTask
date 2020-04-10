@@ -6,11 +6,10 @@ import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
 
-@Suppress("TooManyFunctions")
 @Module
 interface DataSourceModule {
 
     @Binds
     @Singleton
-    fun bindTestDataSource(source: ArticlesRemoteDataSource): ArticlesDataSource
+    fun bindArticlesDataSource(source: ArticlesRemoteDataSource): ArticlesDataSource
 }

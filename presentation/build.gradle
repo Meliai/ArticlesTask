@@ -50,4 +50,5 @@ dependencies {
     kapt commonDependencies.glideProcessor
 
     implementation commonDependencies.material
+    implementation commonDependencies.threeTenABP
 }
