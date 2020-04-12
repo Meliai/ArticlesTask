@@ -11,6 +11,7 @@ class ArticlesListItemMapper @Inject constructor() : Mapper<Article, ListItem> {
     override fun mapFromObject(source: Article): ListItem =
         with(source) {
             ArticleListItem(
+                id = id,
                 title = title,
                 description = description,
                 url = url

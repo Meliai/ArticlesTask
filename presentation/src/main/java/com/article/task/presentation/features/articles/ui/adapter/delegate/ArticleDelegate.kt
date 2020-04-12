@@ -2,7 +2,10 @@ package com.article.task.presentation.features.articles.ui.adapter.delegate
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.article.task.presentation.Clicks
 import com.article.task.presentation.R
+import com.article.task.presentation.core.bus.Click
+import com.article.task.presentation.core.bus.click
 import com.article.task.presentation.features.articles.ui.adapter.item.ArticleListItem
 import com.article.task.presentation.utils.loadImage
 import com.article.task.presentation.utils.withAdapterPosition
@@ -24,6 +27,7 @@ class ArticleDelegate(
             with(this as ViewHolder) {
                 itemView.setOnClickListener {
                     withAdapterPosition<ArticleListItem> { _, item, _ ->
+                        bus.click(Clicks.OpenAricleClicked(item.id))
                     }
                 }
             }

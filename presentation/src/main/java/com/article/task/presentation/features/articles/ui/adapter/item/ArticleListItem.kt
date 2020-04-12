@@ -4,6 +4,7 @@ import com.nullgr.core.adapter.items.ListItem
 import java.util.Objects
 
 data class ArticleListItem(
+    val id: Int,
     val title: String?,
     val description: String?,
     val url: String?

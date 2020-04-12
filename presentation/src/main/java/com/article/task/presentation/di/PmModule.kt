@@ -5,6 +5,7 @@ import com.article.task.presentation.core.pm.factory.GeneralPmFactory
 import com.article.task.presentation.core.pm.factory.PmFactory
 import com.article.task.presentation.features.app.pm.AppPm
 import com.article.task.presentation.features.articles.pm.ArticlesListPm
+import com.article.task.presentation.features.details.pm.ArticleDetailsPm
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -25,4 +26,9 @@ interface PmModule {
     @IntoMap
     @PmKey(ArticlesListPm::class)
     fun bindArticlesListPm(pm: ArticlesListPm): PresentationModel
+
+    @Binds
+    @IntoMap
+    @PmKey(ArticleDetailsPm::class)
+    fun bindArticleDetailsPm(pm: ArticleDetailsPm): PresentationModel
 }

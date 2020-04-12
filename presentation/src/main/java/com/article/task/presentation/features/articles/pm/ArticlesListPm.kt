@@ -3,6 +3,9 @@ package com.article.task.presentation.features.articles.pm
 import com.article.common.mapper.Mapper
 import com.article.task.domain.features.articles.interactor.GetArticlesUseCase
 import com.article.task.domain.features.articles.model.Article
+import com.article.task.presentation.Clicks
+import com.article.task.presentation.Screens
+import com.article.task.presentation.core.bus.clicks
 import com.article.task.presentation.core.pm.BaseListPm
 import com.article.task.presentation.core.pm.ServiceFacade
 import com.nullgr.core.adapter.items.ListItem
@@ -32,6 +35,18 @@ class ArticlesListPm @Inject constructor(
             .doOnNext { loadScreenAction.consumer.accept(Unit) }
             .subscribe()
             .untilDestroy()
+    }
+
+    override fun onBind() {
+        super.onBind()
+        bus.clicks<Clicks.OpenAricleClicked>()
+            .debounceAction()
+            .doOnNext { click ->
+                val article = currentList.valueOrNull?.firstOrNull { click.id == it.id }
+                article?.let { router.navigateTo(Screens.ArticleDetails(it)) }
+            }
+            .subscribe()
+            .untilUnbind()
     }
 
     private fun uploadData() =
