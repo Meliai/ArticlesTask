@@ -44,8 +44,9 @@ class ArticleDetailsFragment : BaseFragment<ArticleDetailsPm>() {
                 articleDetailsDateTextView.toggleView(date != null)
                 articleDetailsDateTextView.text = date?.toFormattedString()
 
-                articleDetailsAuthorTextView.toggleView(!author.isNullOrBlank())
-                articleDetailsAuthorTextView.text = author
+                articleDetailsAuthorTextView.text = if (!author.isNullOrBlank()) {
+                    author
+                } else "-"
             }
         }
     }
