@@ -53,8 +53,8 @@ class ArticlesListPm @Inject constructor(
         getArticlesUseCase.execute()
             .hideErrorContainer()
             .doOnSuccess { list ->
-                currentList.consumer.accept(list)
-                items.consumer.accept(mapper.mapFromObjects(list))
+                currentList.consumer.accept(list.sortedByDescending { it.date })
+                items.consumer.accept(mapper.mapFromObjects(currentList.value))
             }
             .doOnError(::handleError)
 }

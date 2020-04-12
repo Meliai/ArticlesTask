@@ -3,6 +3,7 @@ package com.article.task.presentation.utils
 import android.util.LruCache
 import com.article.task.presentation.utils.CommonFormats.FORMAT_DATE
 import org.threeten.bp.Instant
+import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneId
 import org.threeten.bp.ZoneOffset
@@ -31,7 +32,7 @@ object DateTimeFormatterCache {
     }
 }
 
-fun ZonedDateTime.toFormattedString(): String = this.format(
+fun LocalDate.toFormattedString(): String = this.format(
     DateTimeFormatterCache.getOrCreateFormatter(FORMAT_DATE)
 )
 

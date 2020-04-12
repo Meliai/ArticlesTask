@@ -2,7 +2,7 @@ package com.article.task.domain.features.articles.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import org.threeten.bp.ZonedDateTime
+import org.threeten.bp.LocalDate
 
 @Parcelize
 data class Article(
@@ -10,6 +10,6 @@ data class Article(
     val title: String?,
     val description: String?,
     val author: String?,
-    val date: ZonedDateTime?,
+    val date: LocalDate?,
     val url: String?
 ) : Parcelable
