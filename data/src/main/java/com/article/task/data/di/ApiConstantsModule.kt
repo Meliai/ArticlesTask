@@ -16,7 +16,7 @@ class ApiConstantsModule(private val isDebugMode: Boolean) {
     }
 
     private companion object {
-        const val SERVER_URL_PROD = "http://viesure.free.beeceptor.com/"
-        const val SERVER_URL_TEST = "http://viesure.free.beeceptor.com/"
+        const val SERVER_URL_PROD = "https://viesure.free.beeceptor.com/"
+        const val SERVER_URL_TEST = "https://viesure.free.beeceptor.com/"
     }
 }

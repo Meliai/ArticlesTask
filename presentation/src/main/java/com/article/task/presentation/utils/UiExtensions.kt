@@ -28,7 +28,7 @@ inline fun <reified T : ListItem> RecyclerView.ViewHolder.withAdapterPosition(
 }
 
 fun ImageView.loadImage(
-    @DrawableRes icon: Int?,
+    url: String?,
     @DrawableRes loadingPlaceholder: Int,
     @DrawableRes errorPlaceholder: Int,
     onSuccess: (() -> Unit)? = null,
@@ -36,7 +36,7 @@ fun ImageView.loadImage(
     onComplete: (() -> Unit)? = null
 ) {
     Glide.with(context)
-        .load(icon)
+        .load(url)
         .apply(
             RequestOptions.circleCropTransform()
                 .placeholder(loadingPlaceholder)

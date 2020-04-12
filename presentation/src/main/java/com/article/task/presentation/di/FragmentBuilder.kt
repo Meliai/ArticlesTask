@@ -1,7 +1,8 @@
 package com.article.task.presentation.di
 
 import com.article.task.presentation.core.di.FragmentScope
-import com.article.task.presentation.features.onboaring.ui.OnBoardingFragment
+import com.article.task.presentation.features.articles.di.ArticlesListModule
+import com.article.task.presentation.features.articles.ui.ArticlesListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,6 +10,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuilder {
 
     @FragmentScope
-    @ContributesAndroidInjector
-    abstract fun bindOnBoardingFragment(): OnBoardingFragment
+    @ContributesAndroidInjector(modules = [ArticlesListModule::class])
+    abstract fun bindArticlesListFragment(): ArticlesListFragment
 }

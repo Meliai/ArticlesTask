@@ -7,7 +7,8 @@
     <!--Color Palette-->
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
-    <color name="grey">#959595</color>
+    <color name="grey">#6F6E6E</color>
+    <color name="light_grey">#FAFAFA</color>
 
     <color name="active_green">#53c43f</color>
     <color name="active_green_opacity50">#9bd8ad</color>

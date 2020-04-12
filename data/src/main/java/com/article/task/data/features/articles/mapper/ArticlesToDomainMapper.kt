@@ -15,7 +15,7 @@ class ArticlesToDomainMapper @Inject constructor() : Mapper<ArticleDto, Article>
                 title,
                 description,
                 author,
-                ZonedDateTime.parse(date, DateTimeFormatter.ofPattern("M/DD/YYYY")),
+                runCatching { ZonedDateTime.parse(date, DateTimeFormatter.ofPattern("M/DD/YYYY")) }.getOrNull(),
                 url
             )
         }
