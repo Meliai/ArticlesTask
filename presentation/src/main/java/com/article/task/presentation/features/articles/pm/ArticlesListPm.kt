@@ -4,11 +4,13 @@ import com.article.common.mapper.Mapper
 import com.article.task.domain.features.articles.interactor.GetArticlesUseCase
 import com.article.task.domain.features.articles.model.Article
 import com.article.task.presentation.Clicks
+import com.article.task.presentation.ErrorData
 import com.article.task.presentation.Screens
 import com.article.task.presentation.core.bus.clicks
 import com.article.task.presentation.core.pm.BaseListPm
 import com.article.task.presentation.core.pm.ServiceFacade
 import com.nullgr.core.adapter.items.ListItem
+import com.nullgr.core.collections.isNotNullOrEmpty
 import me.dmdev.rxpm.action
 import me.dmdev.rxpm.state
 import javax.inject.Inject
@@ -24,6 +26,8 @@ class ArticlesListPm @Inject constructor(
 
     override fun onCreate() {
         super.onCreate()
+
+        setErrorStateData(ErrorData.ErrorState(resources))
 
         loadScreenAction.observable
             .flatMapSingle { uploadData() }
@@ -53,8 +57,12 @@ class ArticlesListPm @Inject constructor(
         getArticlesUseCase.execute()
             .hideErrorContainer()
             .doOnSuccess { list ->
-                currentList.consumer.accept(list.sortedByDescending { it.date })
-                items.consumer.accept(mapper.mapFromObjects(currentList.value))
+                if (list.isNotNullOrEmpty()) {
+                    currentList.consumer.accept(list.sortedByDescending { it.date })
+                    items.consumer.accept(mapper.mapFromObjects(currentList.value))
+                } else {
+                    setErrorViewVisibility(true)
+                }
             }
             .doOnError(::handleError)
 }

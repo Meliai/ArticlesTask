@@ -17,6 +17,10 @@ dependencies {
     implementation commonDependencies.javaxAnnotation
     implementation commonDependencies.javaxInject
 
+    implementation commonDependencies.room
+    kapt commonDependencies.roomCompiler
+    implementation commonDependencies.roomRx
+
     // Dagger2
     kapt commonDependencies.daggerCompiler
     kapt commonDependencies.daggerAndroidProcessor

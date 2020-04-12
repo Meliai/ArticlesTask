@@ -48,6 +48,9 @@ def libraryVersions = [
         javaxInjectVersion        : '1',
         glassfishAnnotationVersion: '10.0-b28',
 
+        //Database
+        roomVersion                : '2.1.0',
+
         appCoreVersion            : '3.0.0',
         glideVersion              : '4.11.0',
         ciceroneVersion           : '5.0.0',
@@ -114,5 +117,10 @@ ext.commonDependencies = [
         material              : "com.google.android.material:material:${libraryVersions.materialVersion}",
 
         //time
-        threeTenABP             : "com.jakewharton.threetenabp:threetenabp:${libraryVersions.threeTenABPVersion}"
+        threeTenABP             : "com.jakewharton.threetenabp:threetenabp:${libraryVersions.threeTenABPVersion}",
+
+        //database
+        room                    : "androidx.room:room-runtime:${libraryVersions.roomVersion}",
+        roomCompiler            : "androidx.room:room-compiler:${libraryVersions.roomVersion}",
+        roomRx                  : "androidx.room:room-rxjava2:${libraryVersions.roomVersion}"
 ]

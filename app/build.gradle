@@ -145,6 +145,11 @@ dependencies {
 
     implementation commonDependencies.cicerone
 
+    //database
+    implementation commonDependencies.room
+    kapt commonDependencies.roomCompiler
+    implementation commonDependencies.roomRx
+
     // Dagger2
     kapt commonDependencies.daggerCompiler
     kapt commonDependencies.daggerAndroidProcessor

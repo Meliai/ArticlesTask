@@ -1,9 +1,11 @@
 package com.article.task
 
 import android.content.Context
-import com.article.common.di.qualifires.ComputationFacade
-import com.nullgr.core.hardware.NetworkChecker
 import android.content.SharedPreferences
+import androidx.room.Room
+import com.article.common.di.qualifires.ComputationFacade
+import com.article.task.data.cache.ApplicationDatabase
+import com.nullgr.core.hardware.NetworkChecker
 import com.nullgr.core.preferences.defaultPrefs
 import com.nullgr.core.resources.ResourceProvider
 import com.nullgr.core.rx.RxBus
@@ -43,4 +45,15 @@ class AppModule(private val enableLog: Boolean) {
     @Singleton
     @Provides
     fun provideRxBus(): RxBus = SingletonRxBusProvider.BUS
+
+    @Provides
+    @Singleton
+    fun provideDatabase(context: Context): ApplicationDatabase =
+        Room.databaseBuilder(context, ApplicationDatabase::class.java, DB_NAME)
+            .fallbackToDestructiveMigration()
+            .build()
+
+    private companion object {
+        const val DB_NAME = "articles.db"
+    }
 }
