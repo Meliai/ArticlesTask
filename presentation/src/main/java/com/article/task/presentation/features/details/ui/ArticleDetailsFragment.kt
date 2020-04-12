@@ -7,6 +7,9 @@ import com.article.task.presentation.core.ui.fragment.BaseFragment
 import com.article.task.presentation.core.ui.system_ui.LightStatusBarConfigProvider
 import com.article.task.presentation.core.ui.system_ui.StatusBarConfigProvider
 import com.article.task.presentation.features.details.pm.ArticleDetailsPm
+import com.article.task.presentation.utils.loadImage
+import com.article.task.presentation.utils.toFormattedString
+import com.nullgr.core.ui.extensions.toggleView
 import kotlinx.android.synthetic.main.fragment_article_details.*
 import me.dmdev.rxpm.bindTo
 
@@ -26,7 +29,24 @@ class ArticleDetailsFragment : BaseFragment<ArticleDetailsPm>() {
     override fun onBindPresentationModel(pm: ArticleDetailsPm) {
         super.onBindPresentationModel(pm)
         pm.articleState.bindTo {
-            articleDetailsTitleTextView.text = it.title
+            with(it) {
+                articlePhotoImageView.loadImage(
+                    url,
+                    R.drawable.ic_no_photo,
+                    R.drawable.ic_no_photo
+                )
+                articleDetailsTitleTextView.toggleView(!title.isNullOrBlank())
+                articleDetailsTitleTextView.text = title
+
+                articleDetailsDescriptionTextView.toggleView(!description.isNullOrBlank())
+                articleDetailsDescriptionTextView.text = description
+
+                articleDetailsDateTextView.toggleView(date != null)
+                articleDetailsDateTextView.text = date?.toFormattedString()
+
+                articleDetailsAuthorTextView.toggleView(!author.isNullOrBlank())
+                articleDetailsAuthorTextView.text = author
+            }
         }
     }
 

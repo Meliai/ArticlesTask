@@ -1,11 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/articleDetailsTitleTextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
-</LinearLayout>
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/articlePhotoImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_no_photo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/articleDetailsTitleTextView"
+            style="@style/TypographyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articlePhotoImageView"
+            tools:text="Title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/articleDetailsDateTextView"
+            style="@style/TypographyDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleDetailsTitleTextView"
+            tools:text="Wed, Jul 8, '20" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/articleDetailsDescriptionTextView"
+            style="@style/TypographyDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleDetailsDateTextView"
+            tools:text="Description looon long loooong! Dummy loooon description nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vitae mat wefcwef wdv wv " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/articleDetailsAuthorTitleTextView"
+            style="@style/TypographyAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/author"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleDetailsDescriptionTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/articleDetailsAuthorTextView"
+            style="@style/TypographyAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/articleDetailsAuthorTitleTextView"
+            app:layout_constraintStart_toEndOf="@+id/articleDetailsAuthorTitleTextView"
+            app:layout_constraintTop_toTopOf="@id/articleDetailsAuthorTitleTextView"
+            tools:text="Some author" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

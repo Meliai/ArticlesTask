@@ -17,4 +17,25 @@
         <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
 
+    <style name="TypographyTitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_size_title</item>
+    </style>
+
+    <style name="TypographyDescription">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">@dimen/font_size_description</item>
+    </style>
+
+    <style name="TypographyDate">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">@dimen/font_size_date</item>
+    </style>
+
+    <style name="TypographyAuthor">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">@dimen/font_size_author</item>
+    </style>
+
 </resources>

@@ -31,6 +31,7 @@ fun ImageView.loadImage(
     url: String?,
     @DrawableRes loadingPlaceholder: Int,
     @DrawableRes errorPlaceholder: Int,
+    isImageCircled: Boolean? = null,
     onSuccess: (() -> Unit)? = null,
     onError: (() -> Unit)? = null,
     onComplete: (() -> Unit)? = null
@@ -38,9 +39,15 @@ fun ImageView.loadImage(
     Glide.with(context)
         .load(url)
         .apply(
-            RequestOptions.circleCropTransform()
-                .placeholder(loadingPlaceholder)
-                .error(errorPlaceholder)
+            if (isImageCircled != null && isImageCircled) {
+                RequestOptions.circleCropTransform()
+                    .placeholder(loadingPlaceholder)
+                    .error(errorPlaceholder)
+            } else {
+                RequestOptions()
+                    .placeholder(loadingPlaceholder)
+                    .error(errorPlaceholder)
+            }
         )
         .transition(DrawableTransitionOptions.withCrossFade())
         .addListener(object : RequestListener<Drawable> {

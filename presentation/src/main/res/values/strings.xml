@@ -5,4 +5,5 @@
     <string name="error_network_description">Check your network connection</string>
     <string name="error_title">Ooooooppps!</string>
     <string name="error_description">Something went wrong</string>
+    <string name="author">Author:</string>
 </resources>

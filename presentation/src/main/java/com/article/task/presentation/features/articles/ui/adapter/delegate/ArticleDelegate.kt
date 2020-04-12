@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.article.task.presentation.Clicks
 import com.article.task.presentation.R
-import com.article.task.presentation.core.bus.Click
 import com.article.task.presentation.core.bus.click
 import com.article.task.presentation.features.articles.ui.adapter.item.ArticleListItem
 import com.article.task.presentation.utils.loadImage
@@ -40,8 +39,9 @@ class ArticleDelegate(
         with(holder as ViewHolder) {
             articleImageView.loadImage(
                 item.url,
-                R.drawable.ic_no_photo_gray_small,
-                R.drawable.ic_no_photo_gray_small
+                R.drawable.ic_no_photo,
+                R.drawable.ic_no_photo,
+                true
             )
 
             articleTitleTextView.text = item.title ?: "-"
@@ -61,8 +61,9 @@ class ArticleDelegate(
                 ArticleListItem.Payload.PHOTO_CHANGED ->
                     articleImageView.loadImage(
                         item.url,
-                        R.drawable.ic_no_photo_gray_small,
-                        R.drawable.ic_no_photo_gray_small
+                        R.drawable.ic_no_photo,
+                        R.drawable.ic_no_photo,
+                        true
                     )
             }
         }
